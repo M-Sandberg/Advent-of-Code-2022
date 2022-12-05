@@ -3,9 +3,8 @@ def part_one( backpack_list, priorities ):
         
     sum_priorities  = 0
     
-    for line in backpack_list:
+    for backpack in backpack_list:
 
-        backpack = line.strip()
         first_compartment, second_compartment = (backpack[len(backpack) // 2:], backpack[:len(backpack) // 2])
 
         already_found = []
@@ -20,7 +19,6 @@ def part_one( backpack_list, priorities ):
 def part_two( backpack_list, priorities ):
 
     sum_priorities  = 0
-
     
     list_len = len(backpack_list)
 
@@ -32,7 +30,6 @@ def part_two( backpack_list, priorities ):
             if item in bp_two and item in bp_three:
                 sum_priorities += priorities.index(item)
                 break
-
 
     return sum_priorities
 
