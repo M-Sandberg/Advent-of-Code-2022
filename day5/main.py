@@ -17,22 +17,11 @@ def part_two( steps_arr, stack_arr ):
 
         _move, _from, _to = step
 
-        while _move:
+        if _move < 2:
+            stack_arr[_to - 1].append(stack_arr[_from - 1].pop())
 
-            if _move < 2:
-                crate = stack_arr[_from - 1].pop()
-                stack_arr[_to - 1].append(crate)
-                _move -= 1
-
-            else:
-
-                temp_arr = []
-                for idx in range( _move ):
-                    crate = stack_arr[_from - 1].pop()
-                    temp_arr.append(crate)
-
-                stack_arr[_to - 1].extend( temp_arr[::-1] )
-                break
+        else:
+            stack_arr[_to - 1].extend( [ stack_arr[_from - 1].pop() for idx in range( _move ) ][::-1] )
 
     return stack_arr
     
