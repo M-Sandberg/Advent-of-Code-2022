@@ -21,7 +21,7 @@ def part_two( steps_arr, stack_arr ):
             stack_arr[_to - 1].append(stack_arr[_from - 1].pop())
 
         else:
-            stack_arr[_to - 1].extend( [ stack_arr[_from - 1].pop() for idx in range( _move ) ][::-1] )
+            stack_arr[_to - 1].extend( [ stack_arr[_from - 1].pop() for idx in range( _move ) ][::] )
 
     return stack_arr
     
