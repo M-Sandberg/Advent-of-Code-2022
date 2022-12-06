@@ -1,16 +1,11 @@
 
-def part_one(msg):
+def part_one(msg, unique_req):
     for idx in range(0, len(msg), 1):
-        if len(set(msg[idx:idx+4])) == len(msg[idx:idx+4]):
-            return idx + 4
-
-def part_two(msg):
-    for idx in range(0, len(msg), 1):
-        if len(set(msg[idx:idx+14])) == len(msg[idx:idx+14]):
-            return idx + 14
+        if len(set(msg[idx:idx+unique_req])) == len(msg[idx:idx+unique_req]):
+            return idx + unique_req
 
 with open('./list.txt', 'r') as day6_data:
     msg = day6_data.readlines()[0]
-    print(part_one(msg))
-    print(part_two(msg))
+    print(part_one(msg, 4))
+    print(part_one(msg, 14))
 
