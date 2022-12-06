@@ -1,6 +1,6 @@
 
 def part_one_and_two(msg, unique_req):
-    for idx in range(0, len(msg), 1):
+    for idx in range(4, len(msg), 1):
         if len(set(msg[idx:idx+unique_req])) == len(msg[idx:idx+unique_req]):
             return idx + unique_req
 
